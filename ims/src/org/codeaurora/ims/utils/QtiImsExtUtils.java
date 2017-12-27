@@ -431,6 +431,11 @@ public class QtiImsExtUtils {
                 carrierConfig);
     }
 
+    //TODO not removing this deprecated API to avoid compilation errors.
+    public static boolean allowVideoCallsInLowBattery(Context context) {
+        return allowVideoCallsInLowBattery(QtiCallConstants.INVALID_PHONE_ID, context);
+    }
+
     public static boolean allowVideoCallsInLowBattery(int phoneId, Context context) {
         return isCarrierConfigEnabled(phoneId, context,
                 QtiCarrierConfigs.ALLOW_VIDEO_CALL_IN_LOW_BATTERY);
@@ -439,6 +444,11 @@ public class QtiImsExtUtils {
     public static boolean shallHidePreviewInVtConference(int phoneId, Context context) {
         return isCarrierConfigEnabled(phoneId, context,
                 QtiCarrierConfigs.HIDE_PREVIEW_IN_VT_CONFERENCE);
+    }
+
+    public static boolean canHoldVideoCall(int phoneId, Context context) {
+        return isCarrierConfigEnabled(phoneId, context,
+                QtiCarrierConfigs.ALLOW_HOLD_IN_VIDEO_CALL);
     }
 
     //TODO not removing this deprecated API to avoid compilation errors.
